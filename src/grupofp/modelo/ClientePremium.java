@@ -8,7 +8,7 @@ package grupofp.modelo;
  *
  * @author pcsalvador
  */
-public class ClientePremium extends Cliente{
+public abstract class ClientePremium extends Cliente{
 
     public String getNombre() {
         return nombre;
@@ -48,5 +48,16 @@ public class ClientePremium extends Cliente{
         domicilio = d; 
         this.email=email; 
     }
+        	public String tipoCliente() {
+        return null;
+		
+		}
+        
+        public float calcAnual() {
+        return 0;
+     
+		}
+        
+        public abstract float descuentoEnv();
     
 }

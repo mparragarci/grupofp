@@ -8,7 +8,7 @@ package grupofp.modelo;
  *
  * @author pcsalvador
  */
-public class ClienteEstandard extends Cliente{
+public abstract class ClienteEstandard extends Cliente{
 
     public String getNombre() {
         return nombre;
@@ -50,6 +50,16 @@ public class ClienteEstandard extends Cliente{
         this.email=email; 
     }
     
- 
+    	public String tipoCliente() {
+        return null;
+		
+		}
+        
+        public float calcAnual() {
+        return 0;
+     
+		}
+        
+        public abstract float descuentoEnv();
     
 }

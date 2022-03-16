@@ -6,11 +6,14 @@ package grupofp.modelo;
 
 import Otros.Hora;
 import Otros.Fecha;
+import java.util.ArrayList;
 /**
  *
  * @author pcsalvador
  */
 public class Pedido {
+    
+    public static ArrayList<Pedido> listadoPedido = new ArrayList<>();
     private int numPedido; 
     private String NIF; 
     private String codigoA; 
@@ -57,6 +60,14 @@ public class Pedido {
     void calcularPrecioPedido(){
         
         
+    }
+    
+    public boolean pedidoEnviado(){
+        return false;
+    }
+
+    public float precioEnvio(){
+        return 0;
     }
     
     

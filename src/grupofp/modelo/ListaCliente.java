@@ -11,7 +11,7 @@ import java.io.*;
  *
  * @author pcsalvador
  */
-public class ListaCliente {
+public class ListaCliente extends Lista {
     
     //La inicialitzem per a començar a posar clients
     private ArrayList<Cliente> clientes = new ArrayList<Cliente>(); 

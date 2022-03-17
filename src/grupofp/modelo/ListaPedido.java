@@ -11,7 +11,7 @@ import java.io.*;
  *
  * @author pcsalvador
  */
-public class ListaPedido {
+public class ListaPedido extends Lista{
     private ArrayList<Pedido> pedidos = new ArrayList<Pedido>(); 
     
 }

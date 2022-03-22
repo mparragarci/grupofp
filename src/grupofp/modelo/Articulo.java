@@ -12,9 +12,9 @@ public class Articulo {
     private String descripcion;
     private Double precioVenta;
     private Double gastosEnvio;
-    private Hora tPrep;
+    private double tPrep; // ES el tiempo en minutos
 
-    public Articulo(String codigo, String descripcion, Double precioVenta, Double gastosEnvio, Hora tPrep) {
+    public Articulo(String codigo, String descripcion, Double precioVenta, Double gastosEnvio, double tPrep) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precioVenta = precioVenta;
@@ -34,7 +34,7 @@ public class Articulo {
     
     
     
-    Articulo(String c, String d, double precio, double gE, Hora tiempo){
+    Articulo(String c, String d, double precio, double gE, double tiempo){
         codigo=c;
         descripcion = d; 
         precioVenta=precio;
@@ -42,6 +42,10 @@ public class Articulo {
         tPrep=tiempo; 
     }
     
+    
+    //
+    // GETTERS
+    //
     String getCodigo(){
         return codigo;
     }
@@ -54,8 +58,19 @@ public class Articulo {
         return precioVenta; 
     }
     
-  
+    Double getGastosEnvio(){
+        return gastosEnvio;
+    }
     
+    Double getTiempoPreparacion(){
+        return tPrep; 
+    }
+    
+ 
+    
+    //
+    //SETTERS
+    //
     void setCodigo(String c){
         codigo=c; 
     }
@@ -66,6 +81,14 @@ public class Articulo {
     
     void setPrecioVenta(Double precio){
         precioVenta=precio; 
+    }
+    
+    void setGastosEnvio(Double g){
+        gastosEnvio =g; 
+    }
+    
+    void setTPrep(Double t){
+        tPrep = t; 
     }
     
    

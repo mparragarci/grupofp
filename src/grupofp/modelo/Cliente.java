@@ -5,69 +5,56 @@
 package grupofp.modelo;
 
 
-public abstract class Cliente {
+public class Cliente {
     protected String nombre; 
+    protected Cliente c;
     protected String NIF; 
     protected String domicilio; 
     protected String email;
-    private String tipoC; 
-    private int cuota; 
-    private int dto; 
-
-    public Cliente(String nombre, String NIF, String domicilio, String email, String tipoC, int cuota, int dto) {
-        this.nombre = nombre;
-        this.NIF = NIF;
-        this.domicilio = domicilio;
-        this.email = email;
-        this.tipoC = tipoC;
-        this.cuota = cuota;
-        this.dto = dto;
-    }
-
-    public Cliente() {
-    }
-    
-    
+    protected String tipoC; 
+    protected int cuota; 
+    protected double dto; 
 
     @Override
     public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", NIF=" + NIF + ", domicilio=" + domicilio + ", email=" + email + ", tipoC=" + tipoC + ", cuota=" + cuota + ", dto=" + dto + '}';
+        return "Cliente{" + "nombre=" + nombre + ", NIF=" + NIF + ", domicilio=" + domicilio + ", email=" + email +'}';
     }
     
-    
-    String getNombre(){
+    public String getNombre(){
         return nombre;
     }
     
-    String getNIF(){
+    public String getNif(){
         return NIF; 
     }
     
-    String getDomicilio(){
+    public String getDomicilio(){
         return domicilio; 
     }
     
-    String getEmail(){
+    public String getEmail(){
         return email; 
     }
     
-    void setNombre(String n){
+    public void setNombre(String n){
         nombre = n; 
     }
     
-    void setNIF(String nif){
+    public void setNIF(String nif){
         NIF = nif; 
     }
-    
-    void setDomicilio(String d){
+   
+    public void setDomicilio(String d){
         domicilio = d; 
     }
     
-    void setEmail(String e){
+    public void setEmail(String e){
         email = e; 
     }
     
-    String tipoCliente(Cliente c){
+   
+    
+    public String tipoCliente(Cliente c){
         if(c instanceof ClienteEstandard){
           tipoC= "estandard";  
         }
@@ -77,7 +64,7 @@ public abstract class Cliente {
         return tipoC; 
     }
     
-    int cuotaAnual(Cliente c){
+    public int cuotaAnual(Cliente c){
         if(c instanceof ClienteEstandard){
          cuota=0;   
         }
@@ -87,13 +74,14 @@ public abstract class Cliente {
         return cuota; 
     }
     
-    int dtoEnvio(Cliente c){
+    public double dtoEnvio(){
         if(c instanceof ClienteEstandard){
-         dto= 0;   
+         dto= 1;   
         }
         if(c instanceof ClientePremium){
-          dto = 20; 
+          dto = 0.8; //es 0.8 per que es multiplicar per aplicar el 20% de dto
         }  
         return dto; 
     }
+      
 }

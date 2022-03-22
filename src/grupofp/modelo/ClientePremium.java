@@ -8,39 +8,7 @@ package grupofp.modelo;
  *
  * @author pcsalvador
  */
-public abstract class ClientePremium extends Cliente{
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getNIF() {
-        return NIF;
-    }
-
-    public void setNIF(String NIF) {
-        this.NIF = NIF;
-    }
-
-    public String getDomicilio() {
-        return domicilio;
-    }
-
-    public void setDomicilio(String domicilio) {
-        this.domicilio = domicilio;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+public  class ClientePremium extends Cliente{
     
     ClientePremium(String n, String nif, String d, String email ){
         nombre = n;
@@ -48,16 +16,5 @@ public abstract class ClientePremium extends Cliente{
         domicilio = d; 
         this.email=email; 
     }
-        	public String tipoCliente() {
-        return null;
-		
-		}
-        
-        public float calcAnual() {
-        return 0;
-     
-		}
-        
-        public abstract float descuentoEnv();
     
 }

@@ -11,7 +11,24 @@ import java.io.*;
  *
  * @author pcsalvador
  */
-public class ListaPedido extends Lista{
+
+public class ListaPedido {
     private ArrayList<Pedido> pedidos = new ArrayList<Pedido>(); 
+    
+    public void addPedido(Pedido p){
+        pedidos.add(p);
+    }
+    
+    public Pedido getPedido(int p){
+        return pedidos.get(p);
+    }
+    
+    public int size(){
+        return pedidos.size();
+    }
+    
+    public void eliminar(int i){
+        pedidos.remove(i);
+    }
     
 }

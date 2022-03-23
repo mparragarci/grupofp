@@ -24,9 +24,6 @@ public class Controlador {
     private int i; 
     private boolean confirmar;
     
-    
-    
-    
     Controlador(){
         datos = new Datos(); 
         gestion = new GestionOS(); 
@@ -129,10 +126,6 @@ public class Controlador {
     }
     
     public void añadirClienteEstandard(){
-          lista lista = Datos.añadirClienteEstandard();
-        GestionOS.ClientesEstandard(lista);
-    }
-
         
     }
     

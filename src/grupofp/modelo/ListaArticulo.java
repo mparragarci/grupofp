@@ -24,4 +24,13 @@ public class ListaArticulo {
         return articulos.get(p);
     }
     
+    public void setArticuloLista(Articulo art, int i){
+        articulos.remove(i);
+        articulos.add(i,art);
+    }
+    
+    public int size(){
+        return articulos.size();
+    }
+    
 }

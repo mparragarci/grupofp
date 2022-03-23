@@ -195,14 +195,7 @@ public class GestionOS {
         return eliminar;
     }
     
-    //ClienteEstandard
-    public String ClienteEstandard(){
-        return lecturaString;
-       
-        }
-        
-        
-    }
+    
     
     
     

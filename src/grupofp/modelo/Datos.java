@@ -118,96 +118,23 @@ public class Datos {
     }
     
     public void cargarDatosPedido(){
-    
-        numPedido = new Pedido();
-        datos.addPedido(numPedido);
-        return numPedido;
+        new Pedido (numPedido,"NIF","codigoPedido","unidades","fecha","hora","precioPedido");
+        datos.addPedido(p);
         
-        NIF = new Pedido();
-        datos.addPedido(NIF);
-        return NIF;
-        
-        codigoPedido = new Pedido();
-        datos.addPedido (codigoPedido);
-        return codigoPedido;
-        
-        unidades = new Pedido();
-        datos.addPedido(unidades);
-        return unidades;
-        
-        fecha = new Pedido();
-        datos.addPedido(Fecha);
-        return fecha;
-        
-        hora = new Pedido();
-        datos.addPedido(hora);
-        return hora;
-        
-        precioPedido = new Pedido();
-        datos.addPedido(precioPedido);
-        return precioPedido;
     }
     
     public void cargarDatosArticulo(){
-    
-        codigo = new Articulo();
-        datos.addPedido(codigo);
-        return codigo;
         
-        descripcion = new Articulo();
-        datos.addArticulo(descripcion);
-        return descripcion;
-        
-        precioVenta = new Articulo();
-        datos.addArticulo(precioVenta);
-        return precioVenta;
-        
-        gastosEnvio = new Articulo();
-        datos.addArticulo(gastosEnvio);
-        return gastosEnvio;
-        
-        tprep = new Articulo();
-        datos.addArticulo(tprep);
-        return tprep;
-        
-        
+        new Articulo (numArticulo,"codigo","descripcion","precioVenta","gastosEnvio","tPrep");
+        datos.addArticulo(a);
+       
     }
     
     public void cargarDatosCliente(){
     
-        nombre = new Cliente();
-        datos.addCliente(nombre);
-        return nombre;
-        
-        c = new Cliente();
+        new Cliente (numCliente,"nombre","c","NIF","domicilio","email","tipoC","cuota","dto");
         datos.addCliente(c);
-        return c;
-        
-        NIF = new Cliente();
-        datos.addCliente(NIF);
-        return NIF;
-        
-        domicilio = new Cliente();
-        datos.addCliente(domicilio);
-        return domicilio;
-        
-        mail = new Cliente();
-        datos.addCliente(mail);
-        return mail;
-        
-        tipoC = new Cliente();
-        datos.addCliente(tipoC);
-        return tipoC;
-        
-        cuota = new Cliente();
-        datos.addCliente(cuota);
-        return cuota;
-        
-        dto = new Cliente();
-        datos.addCliente(dto);
-        return dto;
-        
-        
+   
     }
     
     

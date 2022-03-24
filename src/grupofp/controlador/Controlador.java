@@ -211,18 +211,78 @@ public class Controlador {
         articulo = new Articulo("P1","Poma",1.5,20.0,2);
         datos.addArticulo(articulo);
         
+         articulo = new Articulo("M7","maduixa",4.1,15.0,2);
+        datos.addArticulo(articulo);
+        
+        articulo = new Articulo("C4","cereals",3.2,17.0,7);
+        datos.addArticulo(articulo);
+        
+         articulo = new Articulo("P4","platan",1.7,14.0,2);
+        datos.addArticulo(articulo);
+        
+        articulo = new Articulo("K8","Kiwi",2.2,22.0,6);
+        datos.addArticulo(articulo);
+        
+         articulo = new Articulo("T6","taronja",1.4,22.0,6);
+        datos.addArticulo(articulo);
+        
+        articulo = new Articulo("P8","pomelo",2.3,16.0,8);
+        datos.addArticulo(articulo);
+        
+        
+        
+        
+        
+        
+        
         
         
         cliente = new Cliente("Juan","53652541G","Carrer Barbera","juangmail@gmail.com");
         datos.addCliente(cliente);
         
         cliente = new Cliente("Pepe","53651541G","Carrer Llevant","pepepepito@gmail.com");
+        
+        cliente = new Cliente("Marisa","43542317M","Carrer Elisenda","marisaremo@gmail.com");
         datos.addCliente(cliente);
+        
+        cliente = new Cliente("Antonio","65454576A","Carrer Bonavista","antoniogarcia@gmail.com");
+        datos.addCliente(cliente);
+        
+        cliente = new Cliente("Raul","56767654R","Avinguda Catalunya","raulperez3@gmail.com");
+        datos.addCliente(cliente);
+        
+        cliente = new Cliente("Santiago","43232123S","Carrer Sepulveda","santiagomare@gmail.com");
+        
+        cliente = new Cliente("Laura","56547865L","Carrer Font Pudenta","lauratarante@gmail.com");
+        datos.addCliente(cliente);
+        
+        cliente = new Cliente("Francisco","67543452F","Carrer Mallorca","franciscogil3@gmail.com");
+        datos.addCliente(cliente);
+   
+        
         
         pedido = new Pedido(2,"53652568H","0236",4,"13-06-2022","14:02:23",2);
         datos.addPedido(pedido);
         
-        pedido = new Pedido(4,"545652543H","54",2,"24-02-2021","17:26:29",6);
+        pedido = new Pedido(6,"52452547Y","234",6,"11-06-2022","16:14:43",7);
+        datos.addPedido(pedido);
+        
+                pedido = new Pedido(5,"54343214T","321",8,"23-11-2022","15:32:23",1);
+        datos.addPedido(pedido);
+        
+        pedido = new Pedido(4,"43215456I","232",5,"11-12-2022","03:43:33",9);
+        datos.addPedido(pedido);
+        
+                pedido = new Pedido(2,"32458765Y","565",5,"23-04-2022","20:05:23",2);
+        datos.addPedido(pedido);
+        
+        pedido = new Pedido(4,"34654354L","21",1,"12-12-2022","13:32:34",5);
+        datos.addPedido(pedido);
+        
+                pedido = new Pedido(5,"43254313E","436",6,"11-11-2022","11:34:22",5);
+        datos.addPedido(pedido);
+        
+        pedido = new Pedido(4,"32123445H","45",6,"23-08-2022","21:26:45",7);
         datos.addPedido(pedido);
         
    

@@ -229,6 +229,15 @@ public class Controlador {
         articulo = new Articulo("P8","pomelo",2.3,16.0,8);
         datos.addArticulo(articulo);
         
+        articulo = new Articulo("M3","Mango",3.2,13.0,8);
+        datos.addArticulo(articulo);
+        
+         articulo = new Articulo("T6","Tomaquet",4.4,12.0,9);
+        datos.addArticulo(articulo);
+        
+        articulo = new Articulo("I4","Iogurts",4.1,11.0,5);
+        datos.addArticulo(articulo);
+        
         
         
         
@@ -258,6 +267,14 @@ public class Controlador {
         
         cliente = new Cliente("Francisco","67543452F","Carrer Mallorca","franciscogil3@gmail.com");
         datos.addCliente(cliente);
+        
+        cliente = new Cliente("Javier","43563134J","Carrer Amigo","javierortiz@gmail.com");
+        
+        cliente = new Cliente("Sandro","56985682S","Carrer America","sandroramirez@gmail.com");
+        datos.addCliente(cliente);
+        
+        cliente = new Cliente("Francisca","47456231F","Carrer Sicilia","franciscacamu@gmail.com");
+        datos.addCliente(cliente);
    
         
         
@@ -283,6 +300,15 @@ public class Controlador {
         datos.addPedido(pedido);
         
         pedido = new Pedido(4,"32123445H","45",6,"23-08-2022","21:26:45",7);
+        datos.addPedido(pedido);
+        
+                pedido = new Pedido(3,"21523524F3221",3,"03-07-2022","17:12:43",6);
+        datos.addPedido(pedido);
+        
+                pedido = new Pedido(1,"42315265S","431","12-12-2022","23:24:45",8);
+        datos.addPedido(pedido);
+        
+        pedido = new Pedido(7,"32156325T","32",7,"11-01-2022","11:45:32",8);
         datos.addPedido(pedido);
         
    

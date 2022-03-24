@@ -6,7 +6,6 @@ package grupofp.modelo;
 
 import Otros.Hora;
 
-
 public class Articulo {
     private String codigo;
     private String descripcion;
@@ -22,47 +21,36 @@ public class Articulo {
         this.tPrep = tPrep;
     }
 
-    public Articulo() {
-    }
-
-    
+ 
     
     @Override
     public String toString() {
         return "Articulo{" + "codigo=" + codigo + ", descripcion=" + descripcion + ", precioVenta=" + precioVenta + ", gastosEnvio=" + gastosEnvio + ", tPrep=" + tPrep + '}';
     }
     
-    
-    
-    Articulo(String c, String d, double precio, double gE, double tiempo){
-        codigo=c;
-        descripcion = d; 
-        precioVenta=precio;
-        gastosEnvio=gE; 
-        tPrep=tiempo; 
-    }
+   
     
     
     //
     // GETTERS
     //
-    String getCodigo(){
+    public String getCodigo(){
         return codigo;
     }
     
-    String getDescripcion(){
+    public String getDescripcion(){
         return descripcion;
     }
     
-    Double getPrecioVenta(){
+    public Double getPrecioVenta(){
         return precioVenta; 
     }
     
-    Double getGastosEnvio(){
+    public Double getGastosEnvio(){
         return gastosEnvio;
     }
     
-    Double getTiempoPreparacion(){
+    public Double getTiempoPreparacion(){
         return tPrep; 
     }
     
@@ -71,23 +59,23 @@ public class Articulo {
     //
     //SETTERS
     //
-    void setCodigo(String c){
+    public void setCodigo(String c){
         codigo=c; 
     }
     
-    void setDescripcion(String d){
+    public void setDescripcion(String d){
         descripcion = d; 
     }
     
-    void setPrecioVenta(Double precio){
+    public void setPrecioVenta(Double precio){
         precioVenta=precio; 
     }
     
-    void setGastosEnvio(Double g){
+    public void setGastosEnvio(Double g){
         gastosEnvio =g; 
     }
     
-    void setTPrep(Double t){
+    public void setTPrep(Double t){
         tPrep = t; 
     }
     

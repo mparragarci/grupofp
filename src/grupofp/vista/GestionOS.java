@@ -9,9 +9,9 @@ import Otros.Hora;
 import grupofp.modelo.*;
 import grupofp.vista.*;
 import java.util.Scanner;
+import java.io.*;
 
 /**
- *
  * @author splan
  */
 public class GestionOS {
@@ -19,6 +19,8 @@ public class GestionOS {
     private int lecturaInt;
     private String lecturaString;
     public Scanner sc = new Scanner(System.in);
+    InputStreamReader flujo = new InputStreamReader(System.in);
+    BufferedReader teclado = new BufferedReader(flujo);
     private String confirmar;
     private Boolean eliminar;
     
@@ -56,12 +58,11 @@ public class GestionOS {
     
     
     public int printMenuPrincipal(){
-        
-        System.out.println("\n--------------");
+        System.out.println("--------------");
         System.out.println("0. Finalizar Programa ");
         System.out.println("1. Gestión Articulos ");
         System.out.println("2. Gestión Clients ");
-        System.out.println("3. Gestión Pedidos\n->: ");
+        System.out.println("3. Gestión Pedidos ");
         opcio = pedirValorMenu(3);
         
         return opcio; 
@@ -76,28 +77,30 @@ public class GestionOS {
         System.out.println("\n--------------");
         System.out.println("0. Menú principal ");
         System.out.println("1. Añadir Artículo ");
-        System.out.println("2. Modificar Artículo\n->: ");
-        opcio = pedirValorMenu(2);
+        System.out.println("2. Imprimir Articulo ");
+        System.out.println("3. Modificar Articulo");
+        opcio = pedirValorMenu(3);
         
         return opcio; 
     }
     
-    public Articulo pedirArticulo(){
+    public Articulo pedirArticulo() {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Introducid datos del articulo");
         
-        System.out.println("Codigo: ");
+        System.out.print("Codigo: ");
         codigo = sc.nextLine(); 
         
-        System.out.println("Nombre: ");
+        System.out.print("Nombre: ");
         descripcion = sc.nextLine();
         
-        System.out.println("Precio_venta/unidad: ");
+        System.out.print("Precio_venta/unidad: ");
         precioVenta = sc.nextDouble();
         
-        System.out.println("Gasto envío: ");
+        System.out.print("Gasto envío: ");
         gastosEnvio = sc.nextDouble();
         
-        System.out.println("Tiempo Preparacion(minutos): ");
+        System.out.print("Tiempo Preparacion(minutos): ");
         tPrep = sc.nextDouble();
         
         articulo = new Articulo(codigo,descripcion,precioVenta,gastosEnvio,tPrep);
@@ -106,8 +109,10 @@ public class GestionOS {
         return articulo; 
     }
     
+    
     //Mismo metodo que el anterior pero modificamos un articulo concreto
     public Articulo pedirArticulo2(int i){
+        Scanner sc = new Scanner(System.in);
         System.out.println("Modificamos articulo"+i+":");
         
         System.out.print("Codigo: ");
@@ -132,6 +137,7 @@ public class GestionOS {
     }
     
     public int pedirNumeroArticulo(){
+        Scanner sc = new Scanner(System.in);
         System.out.print("\nNº Articulo (considere primer articulo es el 0): ");
         opcio = sc.nextInt();
         return i; 
@@ -153,7 +159,7 @@ public class GestionOS {
         System.out.println("0. Menú principal ");
         System.out.println("1. Mostrar Clientes ");
         System.out.println("2. Añadir Cliente ");
-        System.out.println("3. Eliminar Cliente\n->: ");
+        System.out.println("3. Eliminar Cliente");
         opcio = pedirValorMenu(3);
         
         return opcio; 
@@ -174,12 +180,14 @@ public class GestionOS {
     }
     
     public int pedirNumeroCliente(){
+        Scanner sc = new Scanner(System.in);
         System.out.print("Nº cliente: ");
         i = sc.nextInt();
         return i;
     }
     
     public boolean confirmarEliminacionCliente(Cliente c){
+        Scanner sc = new Scanner(System.in);
         System.out.println("");
         printCliente(c);
         System.out.print("Seguro que lo desea eliminar: 'si' o 'no' ");
@@ -210,13 +218,14 @@ public class GestionOS {
         System.out.println("1. Añadir Pedido ");
         System.out.println("2. Pedido Pendiente Envío ");
         System.out.println("3. Pedidos Enviados ");
-        System.out.println("4. Eliminar Pedido \n->: ");
-        opcio = pedirValorMenu(4);
+        System.out.println("4. Eliminar Pedido");
+        opcio = pedirValorMenu(4); 
         
         return opcio; 
     }
     
     public Pedido pedirPedido(){
+        Scanner sc = new Scanner(System.in);
         System.out.println("Introducid datos del pedido: ");
         
         System.out.print("Nº pedido: ");
@@ -260,6 +269,7 @@ public class GestionOS {
     
     
     public int pedirNumeroPedido(){
+        Scanner sc = new Scanner(System.in);
         System.out.print("Nº pedido: ");
         i = sc.nextInt();
         return i;
@@ -289,9 +299,9 @@ public class GestionOS {
     
     //Metode per a demanar un valor dels menus,,, de 0 fins a 4
     public int pedirValorMenu(int nMax){
-        
+        Scanner sc = new Scanner(System.in);
+        //lecturaInt = sc.nextInt();
         lecturaInt = sc.nextInt();
-        
         //Mentre opcio < 0 o opcio>nMAx, demanarem sempre el valor
         while(lecturaInt <0 && lecturaInt > nMax){
             System.out.println("Error");
@@ -305,7 +315,7 @@ public class GestionOS {
     
     //Assegurar-nos que diu si o no
     public String pedirConfirmacion(){
-        
+        Scanner sc = new Scanner(System.in);
         lecturaString = sc.nextLine();
         
         while(lecturaString!="si" && lecturaString!="no"){
@@ -319,10 +329,9 @@ public class GestionOS {
     
     //Assegurar-nos que introdueix 1 o 2
     public int pedirTipoCliente(){
-        
+        Scanner sc = new Scanner(System.in);
         lecturaInt=sc.nextInt();
-        
-        
+       
         while(lecturaInt<1 && lecturaInt>2){
             System.out.println("Error");
             System.out.print("1 o 2 ->: ");

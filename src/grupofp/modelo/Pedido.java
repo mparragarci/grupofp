@@ -55,7 +55,7 @@ public class Pedido {
     
     public void calcularPrecioPedido(Cliente c, Articulo a){
         //Calculem preu genèric: preu = preu unitat * quan/unitats
-        precioPedido = a.getPrecioVenta()*unidades;
+        precioPedido = a.getPrecioVenta() * unidades;
         
         //Recordem: Clients premiums tenen 20% dto en el enviament
         if(c instanceof ClienteEstandard){

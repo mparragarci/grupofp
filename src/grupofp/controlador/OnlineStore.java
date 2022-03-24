@@ -19,9 +19,9 @@ public class OnlineStore
         
         
         
-        controlador.cargarDatos(); 
+        controlador.cargarDatos();
+        
         controlador.accionMenuPrincipal();
-       
-
+        
     }
 }

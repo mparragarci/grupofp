@@ -17,6 +17,7 @@ public class Datos {
     private Cliente cliente;
     private Pedido pedido; 
     private int i;
+   
     
     public Datos(){
         listaArticulos=new ListaArticulo(); 
@@ -117,25 +118,6 @@ public class Datos {
         listaPedidos.eliminar(i);
     }
     
-    public void cargarDatosPedido(){
-        new Pedido (numPedido,"NIF","codigoPedido","unidades","fecha","hora","precioPedido");
-        datos.addPedido(p);
-        
-    }
-    
-    public void cargarDatosArticulo(){
-        
-        new Articulo (numArticulo,"codigo","descripcion","precioVenta","gastosEnvio","tPrep");
-        datos.addArticulo(a);
-       
-    }
-    
-    public void cargarDatosCliente(){
-    
-        new Cliente (numCliente,"nombre","c","NIF","domicilio","email","tipoC","cuota","dto");
-        datos.addCliente(c);
-   
-    }
     
     
     

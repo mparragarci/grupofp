@@ -12,8 +12,9 @@ import java.io.*;
  * @author pcsalvador
  */
 
-public class ListaCliente {
+public class ListaCliente{
     
+
     //La inicialitzem per a començar a posar clients
     private ArrayList<Cliente> clientes = new ArrayList<Cliente>(); 
     
@@ -33,4 +34,5 @@ public class ListaCliente {
         clientes.remove(i);
     }
     
+  
 }

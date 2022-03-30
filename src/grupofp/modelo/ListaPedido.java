@@ -12,7 +12,9 @@ import java.io.*;
  * @author pcsalvador
  */
 
-public class ListaPedido {
+public class ListaPedido{
+    
+   
     private ArrayList<Pedido> pedidos = new ArrayList<Pedido>(); 
     
     public void addPedido(Pedido p){
@@ -30,5 +32,6 @@ public class ListaPedido {
     public void eliminar(int i){
         pedidos.remove(i);
     }
+
     
 }

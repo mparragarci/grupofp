@@ -10,7 +10,7 @@ package grupofp.modelo;
  */
 public  class ClientePremium extends Cliente{
     
-    ClientePremium(String n, String nif, String d, String email ){
+    public ClientePremium(String n, String nif, String d, String email ){
         nombre = n;
         NIF= nif; 
         domicilio = d; 

@@ -1,21 +1,43 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package grupofp.modelo;
-
 import java.util.ArrayList;
-import java.util.List;
 
-// clase generica
+
+/**
+ *
+ * @author splan
+ */
 public class Lista<T> {
-
-    // metodo generico para llenar una lista con objetos
-    protected static <T> ArrayList<T>  retrieveObjetosClase (ArrayList<T> arrayOrigen) {
-        // declarar array nueva
-        ArrayList<T> lista = new ArrayList<T>();
-        // iniciar iterador
-        for (int i = 0; i < lista.size(); i++) {
-            lista.add(lista.get(i));
-        }
-        // Devolver array
-        return lista;
+    protected ArrayList<T> lista;
+    
+    public Lista() {        
+       lista = new ArrayList<T>();
     }
-
+    
+    public void addElemento(T t){
+        lista.add(t);
+    }
+    
+    public T getElemento(int p){
+        return lista.get(p);
+    }
+    
+    public void setElementoLista(T t, int i){
+        lista.remove(i);
+        lista.add(i,t);
+    }
+    
+    public int size(){
+        return lista.size();
+    }
+    
+    public void eliminarElemento(int i){
+        lista.remove(i);
+    }
+    
+    
 }

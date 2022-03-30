@@ -20,6 +20,7 @@ public class Cliente {
         return "Cliente{" + "nombre=" + nombre + ", NIF=" + NIF + ", domicilio=" + domicilio + ", email=" + email +'}';
     }
     
+    
     public String getNombre(){
         return nombre;
     }

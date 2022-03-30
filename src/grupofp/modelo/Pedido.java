@@ -31,13 +31,14 @@ public class Pedido {
         this.unidades=unidades; 
         fecha=f;
         hora=h;
+        precioPedido = 0.0;
     }
     
-    int getNumPedido(){
+    public int getNumPedido(){
         return numPedido; 
     }
     
-    int getUnidades(){
+    public int getUnidades(){
         return unidades;  
     }
     
@@ -47,6 +48,14 @@ public class Pedido {
     
     public String getCodigoArticulo(){
         return codigoArticulo; 
+    }
+    
+    public String getFecha(){
+        return fecha;
+    }
+    
+    public String getHora(){
+        return hora;
     }
     
     Double getPrecioPedido(){

@@ -13,7 +13,10 @@ import java.io.*;
  * @author pcsalvador
  */
 
-public class ListaArticulo {
+public class ListaArticulo{
+    
+    
+    // Ho posem en gris per fer la proba
     private ArrayList<Articulo> articulos = new ArrayList<Articulo>(); 
     
     public void addArticulo(Articulo a){
@@ -32,5 +35,6 @@ public class ListaArticulo {
     public int size(){
         return articulos.size();
     }
+
     
 }

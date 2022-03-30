@@ -14,6 +14,7 @@ import java.io.*;
 /**
  * @author splan
  */
+
 public class GestionOS {
     private int opcio; 
     private int lecturaInt;
@@ -45,8 +46,13 @@ public class GestionOS {
     
     
     //Variables de cliente
-    private Cliente cliente;
-    
+
+    private ClienteEstandard clienteE;
+    private ClientePremium clienteP;
+    protected String nombre; 
+    private Cliente c;
+    protected String domicilio; 
+    protected String email;
     
     
     public GestionOS(){
@@ -77,7 +83,7 @@ public class GestionOS {
         System.out.println("\n--------------");
         System.out.println("0. Menú principal ");
         System.out.println("1. Añadir Artículo ");
-        System.out.println("2. Imprimir Articulo ");
+        System.out.println("2. Mostrar Articulos ");
         System.out.println("3. Modificar Articulo");
         opcio = pedirValorMenu(3);
         
@@ -85,26 +91,32 @@ public class GestionOS {
     }
     
     public Articulo pedirArticulo() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introducid datos del articulo");
         
-        System.out.print("Codigo: ");
+        System.out.println("Introducid datos del articulo");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Codigo: ");
+        codigo = "";
         codigo = sc.nextLine(); 
         
-        System.out.print("Nombre: ");
-        descripcion = sc.nextLine();
+        System.out.println("Nombre: ");
+        descripcion = "";
+        //descripcion = sc.nextLine();
+        try{
+            descripcion = teclado.readLine();
+        } catch(IOException e){};
         
-        System.out.print("Precio_venta/unidad: ");
+        System.out.println("Precio_venta/unidad: ");
         precioVenta = sc.nextDouble();
         
-        System.out.print("Gasto envío: ");
+        System.out.println("Gasto envío: ");
         gastosEnvio = sc.nextDouble();
         
-        System.out.print("Tiempo Preparacion(minutos): ");
+        System.out.println("Tiempo Preparacion(minutos): ");
         tPrep = sc.nextDouble();
         
-        articulo = new Articulo(codigo,descripcion,precioVenta,gastosEnvio,tPrep);
+        Articulo articulo = new Articulo(codigo,descripcion,precioVenta,gastosEnvio,tPrep);
         
+        printArticulo(articulo);
         System.out.println("\t¡Articulo añadido!"); 
         return articulo; 
     }
@@ -115,37 +127,51 @@ public class GestionOS {
         Scanner sc = new Scanner(System.in);
         System.out.println("Modificamos articulo"+i+":");
         
-        System.out.print("Codigo: ");
+        System.out.println("Codigo: ");
         codigo = sc.nextLine(); 
         
-        System.out.print("Nombre: ");
+        System.out.println("Nombre: ");
         descripcion = sc.nextLine();
         
-        System.out.print("Precio_venta/unidad: ");
+        System.out.println("Precio_venta/unidad: ");
         precioVenta = sc.nextDouble();
         
-        System.out.print("Gasto envío: ");
+        System.out.println("Gasto envío: ");
         gastosEnvio = sc.nextDouble();
         
-        System.out.print("Tiempo Preparacion(minutos): ");
+        System.out.println("Tiempo Preparacion(minutos): ");
         tPrep = sc.nextDouble();
         
-        articulo = new Articulo(codigo,descripcion,precioVenta,gastosEnvio,tPrep);
+        Articulo articulo = new Articulo(codigo,descripcion,precioVenta,gastosEnvio,tPrep);
         
         System.out.println("\t¡Articulo modificado!"); 
         return articulo; 
     }
     
-    public int pedirNumeroArticulo(){
+    public int pedirNumeroArticulo(int nMax){
         Scanner sc = new Scanner(System.in);
-        System.out.print("\nNº Articulo (considere primer articulo es el 0): ");
+        if(nMax==1) System.out.println("\nNº Articulo: 0");
+        if(nMax>1) System.out.println("\nNº Articulo: 0 - "+(nMax-1));
+      
         opcio = sc.nextInt();
+        while (opcio <0 || opcio>nMax){
+            System.out.println("Error");
+            if(nMax==1) System.out.println("\nNº Articulo: 0");
+            if(nMax>1) System.out.println("\nNº Articulo: 0 - "+(nMax-1));
+            opcio = sc.nextInt();
+        }
         return i; 
     }
     
     public void printArticulo(Articulo art){
-        art.toString();
-        System.out.println(""); //Espaciar
+        // art.toString();
+        System.out.println("\n--Articulo--");
+
+        System.out.println("Codigo: "+art.getCodigo());
+        System.out.println("Nombre: "+art.getNombre());
+        System.out.println("Precio Venta: "+art.getPrecioVenta());
+        System.out.println("Gasto Envio: "+art.getGastosEnvio());
+        System.out.println("Tiempo prep (min): "+art.getTiempoPreparacion());
     }
     
     
@@ -157,8 +183,8 @@ public class GestionOS {
     public int printMenuClientes(){
         System.out.println("\n--------------");
         System.out.println("0. Menú principal ");
-        System.out.println("1. Mostrar Clientes ");
-        System.out.println("2. Añadir Cliente ");
+        System.out.println("1. Añadir Cliente ");
+        System.out.println("2. Mostrar Clientes ");
         System.out.println("3. Eliminar Cliente");
         opcio = pedirValorMenu(3);
         
@@ -169,32 +195,102 @@ public class GestionOS {
         System.out.println("\n--------------");
         System.out.println("1. Añadir Cliente Estandard ");
         System.out.println("2. Añadir Cliente Premium");
+        System.out.println("->: ");
         
         opcio = pedirTipoCliente();
         return opcio;
     }
     
-    public void printCliente(Cliente c){
-        c.toString();
-        System.out.println(""); //Espaciar
+    public ClienteEstandard pedirClienteE(){
+        System.out.println("Introducid datos cliente(estandard)");
+        System.out.println("Nombre: ");
+        try{
+            nombre = teclado.readLine();
+        } catch(IOException e){};
+        
+        System.out.println("NIF: ");
+        NIF = sc.nextLine();
+        
+        System.out.println("Direccion: ");
+        try{
+            domicilio = teclado.readLine();
+        } catch(IOException e){};
+        
+        System.out.println("Email: ");
+        try{
+            email = teclado.readLine();
+        } catch(IOException e){};
+        
+        clienteE = new ClienteEstandard(nombre,NIF,domicilio,email);
+        return clienteE;
     }
     
-    public int pedirNumeroCliente(){
+        
+    public ClientePremium pedirClienteP(){
+        System.out.println("Introducid datos cliente(premium)");
+        System.out.println("Nombre: ");
+        try{
+            nombre = teclado.readLine();
+        } catch(IOException e){};
+        
+        System.out.println("NIF: ");
+        NIF = sc.nextLine();
+        
+        System.out.println("Direccion: ");
+        try{
+            domicilio = teclado.readLine();
+        } catch(IOException e){};
+        
+        System.out.println("Email: ");
+        try{
+            email = teclado.readLine();
+        } catch(IOException e){};
+        
+        clienteP = new ClientePremium(nombre,NIF,domicilio,email);
+        
+        return clienteP;
+    }
+    
+    public void printCliente(Cliente c){
+        if(c instanceof ClienteEstandard) System.out.println("\n--Cliente Estandard--");
+        if(c instanceof ClientePremium){
+            System.out.println("\n--Cliente Premium--");
+        }
+        System.out.println("Nombre: "+c.getNombre());
+        System.out.println("NIF: "+c.getNif());
+        System.out.println("Direccion: "+c.getDomicilio());
+        System.out.println("Mail: "+c.getEmail());
+    }
+    
+    public int pedirNumeroCliente(int nMax){
         Scanner sc = new Scanner(System.in);
-        System.out.print("Nº cliente: ");
-        i = sc.nextInt();
-        return i;
+        if(nMax==1) System.out.println("Solo un cliente: 0");
+        if (nMax>1) System.out.println("Nº cliente: 0 - "+(nMax-1));
+        System.out.println("->: ");
+
+        opcio = sc.nextInt();
+        while (opcio <0 || opcio>nMax){
+            System.out.println("Error");
+            if(nMax==1) System.out.println("Solo un cliente: 0");
+            if (nMax>1) System.out.println("Nº cliente: 0 - "+(nMax-1));
+            System.out.println("Valor de 0 - "+(nMax-1)+": ");
+            opcio = sc.nextInt();
+        }
+        
+        return opcio;
     }
     
     public boolean confirmarEliminacionCliente(Cliente c){
         Scanner sc = new Scanner(System.in);
         System.out.println("");
         printCliente(c);
-        System.out.print("Seguro que lo desea eliminar: 'si' o 'no' ");
-        confirmar = pedirConfirmacion();
+        System.out.println("Seguro que lo desea eliminar: 1-si o 2-no ");
+        System.out.println("->: ");
+        opcio = pedirConfirmacion();
         
-        if(confirmar=="si"){
+        if(opcio==1){
             eliminar = true;
+            System.out.println("¡Cliente eliminado!");
         }
         else{
             eliminar = false;
@@ -203,7 +299,9 @@ public class GestionOS {
         return eliminar;
     }
     
-    
+    public void noHayClientes(){
+        System.out.println("¡No hay clientes!");
+    }
     
     
     
@@ -216,72 +314,82 @@ public class GestionOS {
         System.out.println("\n--------------");
         System.out.println("0. Menú principal ");
         System.out.println("1. Añadir Pedido ");
-        System.out.println("2. Pedido Pendiente Envío ");
-        System.out.println("3. Pedidos Enviados ");
-        System.out.println("4. Eliminar Pedido");
-        opcio = pedirValorMenu(4); 
+        System.out.println("2. Mostrar pedidos");
+        System.out.println("3. Eliminar Pedido");
+        opcio = pedirValorMenu(3); 
         
         return opcio; 
     }
     
     public Pedido pedirPedido(){
-        Scanner sc = new Scanner(System.in);
+        
         System.out.println("Introducid datos del pedido: ");
         
-        System.out.print("Nº pedido: ");
+        System.out.println("Nº pedido: ");
         numPedido = sc.nextInt();
         
-        System.out.print("NIF: ");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("NIF: ");
         NIF = sc.nextLine();
         
-        System.out.print("codigo artículo: ");
+        System.out.println("codigo artículo: ");
         codigoArticulo = sc.nextLine();
                 
-        System.out.print("unidades: ");
+        System.out.println("unidades: ");
         unidades = sc.nextInt();
         
-        System.out.println("Formato fecha: aaaa-mm-dd donde aaaa es año, mm es mes y dd es dia");
+        System.out.println("Formato fecha: aaaa mm dd donde aaaa es año, mm es mes y dd es dia");
         System.out.print("Fecha pedido: ");
-        fecha = sc.nextLine();
+        try{
+            fecha = teclado.readLine();
+        } catch(IOException e){};
             
         
-        System.out.println("Formato hora: hh:mm donde hh es hora y mm es minutos");
+        System.out.println("Formato hora: hh mm donde hh es hora y mm es minutos");
         System.out.print("Hora pedido: ");
-        hora = sc.nextLine();
+        try{
+            hora = teclado.readLine();
+        } catch(IOException e){};
         
         //Ja podem inicialitzar pedido, el preu el calcularem després
-        pedido = new Pedido(numPedido,NIF,codigoArticulo,unidades,fecha,hora);
+        Pedido pedido = new Pedido(numPedido,NIF,codigoArticulo,unidades,fecha,hora);
+        printPedido(pedido);
         
         return pedido;
     }
     
     
     public void confirmarPedidoAñadido(Pedido p){
-        System.out.println("\n¡Pedido añadido!");
+        System.out.println("\n\t¡Pedido añadido!");
         printPedido(p);
     }
     
     
     public void printPedido(Pedido p){
-        p.toString();
-        System.out.println("");
+        System.out.println("\n--Pedido--");
+        System.out.println("Nª pedido: "+p.getNumPedido());
+        System.out.println("NIF: "+p.getNif());
+        System.out.println("Articulo: "+p.getCodigoArticulo());
+        System.out.println("Unidades: "+p.getUnidades());
+        System.out.println("Fecha: "+p.getFecha());
+        System.out.println("Hora: "+p.getHora());
     }
     
     
     public int pedirNumeroPedido(){
         Scanner sc = new Scanner(System.in);
-        System.out.print("Nº pedido: ");
+        System.out.println("Nº pedido: ");
         i = sc.nextInt();
         return i;
     }
     
     public boolean confirmarEliminacionPedido(Pedido p){
-        System.out.println("");
         printPedido(p);
-        System.out.print("Seguro que lo desea eliminar: 'si' o 'no' ");
-        confirmar = pedirConfirmacion();
+        System.out.println("Seguro que lo desea eliminar: 1-si | 2-no ");
+        System.out.println("->: ");
+        opcio = pedirConfirmacion();
         
-        if(confirmar=="si"){
+        if(opcio==1){
             eliminar = true;
         }
         else{
@@ -300,12 +408,13 @@ public class GestionOS {
     //Metode per a demanar un valor dels menus,,, de 0 fins a 4
     public int pedirValorMenu(int nMax){
         Scanner sc = new Scanner(System.in);
+        System.out.println("->: ");
         //lecturaInt = sc.nextInt();
         lecturaInt = sc.nextInt();
         //Mentre opcio < 0 o opcio>nMAx, demanarem sempre el valor
-        while(lecturaInt <0 && lecturaInt > nMax){
+        while(lecturaInt <0 || lecturaInt > nMax){
             System.out.println("Error");
-            System.out.print("Valor de 0 a "+nMax+": ");
+            System.out.println("Valor de 0 a "+nMax+": ");
             lecturaInt = sc.nextInt();
         }
         
@@ -314,17 +423,18 @@ public class GestionOS {
     
     
     //Assegurar-nos que diu si o no
-    public String pedirConfirmacion(){
+    public int pedirConfirmacion(){
         Scanner sc = new Scanner(System.in);
-        lecturaString = sc.nextLine();
+      
+        lecturaInt = sc.nextInt();
         
-        while(lecturaString!="si" && lecturaString!="no"){
+        while(lecturaInt<1 || lecturaInt>2){
             System.out.println("Error");
-            System.out.print("'si' o 'no': ");
-            lecturaString = sc.nextLine();
+            System.out.println("1-si | 2-no ");
+            lecturaInt = sc.nextInt();
         }
         
-        return lecturaString;
+        return lecturaInt;
     }
     
     //Assegurar-nos que introdueix 1 o 2
@@ -332,9 +442,9 @@ public class GestionOS {
         Scanner sc = new Scanner(System.in);
         lecturaInt=sc.nextInt();
        
-        while(lecturaInt<1 && lecturaInt>2){
+        while(lecturaInt<1 || lecturaInt>2){
             System.out.println("Error");
-            System.out.print("1 o 2 ->: ");
+            System.out.println("1 o 2 ->: ");
             lecturaInt = sc.nextInt();
         }
         

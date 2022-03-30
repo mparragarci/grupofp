@@ -17,8 +17,6 @@ public class OnlineStore
     {
         Controlador controlador = new Controlador();
         
-        
-        
         controlador.cargarDatos();
         
         controlador.accionMenuPrincipal();

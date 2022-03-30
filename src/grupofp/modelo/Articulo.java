@@ -8,14 +8,14 @@ import Otros.Hora;
 
 public class Articulo {
     private String codigo;
-    private String descripcion;
+    private String nombre;
     private Double precioVenta;
     private Double gastosEnvio;
     private double tPrep; // ES el tiempo en minutos
 
-    public Articulo(String codigo, String descripcion, Double precioVenta, Double gastosEnvio, double tPrep) {
+    public Articulo(String codigo, String nombre, Double precioVenta, Double gastosEnvio, double tPrep) {
         this.codigo = codigo;
-        this.descripcion = descripcion;
+        this.nombre= nombre;
         this.precioVenta = precioVenta;
         this.gastosEnvio = gastosEnvio;
         this.tPrep = tPrep;
@@ -25,7 +25,7 @@ public class Articulo {
     
     @Override
     public String toString() {
-        return "Articulo{" + "codigo=" + codigo + ", descripcion=" + descripcion + ", precioVenta=" + precioVenta + ", gastosEnvio=" + gastosEnvio + ", tPrep=" + tPrep + '}';
+        return "Articulo{" + "codigo=" + codigo + ", descripcion=" + nombre + ", precioVenta=" + precioVenta + ", gastosEnvio=" + gastosEnvio + ", tPrep=" + tPrep + '}';
     }
     
    
@@ -38,9 +38,10 @@ public class Articulo {
         return codigo;
     }
     
-    public String getDescripcion(){
-        return descripcion;
+    public String getNombre(){
+        return nombre;
     }
+    
     
     public Double getPrecioVenta(){
         return precioVenta; 
@@ -64,7 +65,7 @@ public class Articulo {
     }
     
     public void setDescripcion(String d){
-        descripcion = d; 
+        nombre = d; 
     }
     
     public void setPrecioVenta(Double precio){
